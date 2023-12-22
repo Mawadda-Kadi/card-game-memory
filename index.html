@@ -17,9 +17,7 @@
             <button id="instructions-btn">instructions</button>
         </div>
         <!-- Game Board Area -->
-        <div class="game-board">
-
-        </div>
+        <div class="game-board" id="game-board"></div>
         <!-- Game Scores Area -->
             <div class="scores">
                 <p class="number-of-moves">Moves<span id="move">0</span></p>
@@ -31,7 +29,7 @@
                 <form>
                     <label for="difficultiy-levels">Difficulity Level</label>
                     <select id="difficulity-levels" name="difficulity-levels">
-                        <option value="rookie-trainer">Rookie Trainer (8 cards)</option>
+                        <option value="rookie-trainer" selected>Rookie Trainer (8 cards)</option>
                         <option value="pro-trainer">Pro Trainer (16 Cards)</option>
                         <option value="master-trainer">Master Trainer (32 Cards)</option>
                     </select>
@@ -40,10 +38,10 @@
             <button id="hint">Hint</button>
             <button id="pause">Pause</button>
             <button id="reset-btn">Reset</button>
-
         </div>
-
-
     </div>
+
+    <!-- Script.js -->
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
