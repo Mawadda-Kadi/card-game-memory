@@ -4,30 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
+    
+    <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Card Memory Game</title>
 </head>
 
 <body>
     <div class="game-box">
+        
         <!-- Game Header Area -->
         <div class="game-header">
             <h1>Card Memory Game</h1>
+        </div>
+        <!-- Game Side Area -->
+        <div class="geme-side">
             <div id="timer">Time: 0s</div>
             <button id="instructions-btn">instructions</button>
         </div>
+        
         <!-- Game Board Area -->
         <div class="game-board" id="game-board"></div>
+        
         <!-- Game Scores Area -->
             <div class="scores">
                 <p class="number-of-moves">Moves<span id="move">0</span></p>
                 <p class="number-of-matched-cards">Matched Cards<span id="matched">0</span></p>
             </div>
-        <!-- Game Control Area --> 
+        
+            <!-- Game Control Area --> 
         <div class="game-control">
             <div class="difficulity-levels">
                 <form>
-                    <label for="difficultiy-levels">Difficulity Level</label>
+                    <label for="difficulity-levels">Difficulity Level</label>
                     <select id="difficulity-levels" name="difficulity-levels">
                         <option value="rookie-trainer" selected>Rookie Trainer (8 cards)</option>
                         <option value="pro-trainer">Pro Trainer (16 Cards)</option>

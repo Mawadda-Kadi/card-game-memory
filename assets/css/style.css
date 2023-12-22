@@ -1,0 +1,17 @@
+/* Global Style */
+body {
+    background-color: lightpink;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'PT Sans', sans-serif;
+    padding: 0;
+}
+
+/* Game Header Style */
+.game-header {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-family: 'Rubik Doodle Shadow', sans-serif;
+}
+
