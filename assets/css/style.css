@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 /* Global Style */
 body {
     background-color: lightpink;
@@ -10,7 +15,7 @@ body {
 /* Game Box Style */
 .game-box {
         /* to make  it responsive */
-    width: 70%;
+    width: 80%;
     background-color: aliceblue;
     padding: 1% 2% 2%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -28,17 +33,28 @@ h1 {
 
 
 /* Game Board Style */
-.game-board {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    /* Credit */
-    gap: 10px;
+
+.card-list {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 25px auto;
+}
+.card-list li {
+    width: 120px;
+    height: 150px;
+    box-sizing: border-box;
+    margin: 5px;
+    border-radius: 5px;
+    border: 2px solid #000;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Cards */
-
-
-
+#card img {
+    width: 100%;
+    background-image: url("../assets/media/flipped-back-card.jpg");
+}
 
 /* Game Scores Style */
 .game-scores {
