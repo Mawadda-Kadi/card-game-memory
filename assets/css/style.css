@@ -7,11 +7,31 @@ body {
     padding: 0;
 }
 
+/* Game Box Style */
+.game-box {
+    width: 70% ; /* to make  it responsive */
+    background-color: aliceblue;
+    padding: 1% 2% 2%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    align-items: center;
+    margin: 2% auto; /* to center it */
+}
+
 /* Game Header Style */
-.game-header {
-    display: flex;
-    text-align: center;
+h1 {
     justify-content: center;
     font-family: 'Rubik Doodle Shadow', sans-serif;
 }
+
+
+/* Game Board Style */
+
+
+
+/* Game Scores Style */
+
+
+/* Game Control Style */
+
 
