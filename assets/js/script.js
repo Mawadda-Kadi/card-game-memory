@@ -1,8 +1,6 @@
 let cards = [];
-let moves = 0;
-let matchedCards = 0;
 let timer;
-let seconds = 0;
+
 
 
 // Functions
@@ -19,6 +17,20 @@ function startGame() {
 function difficulityLevel() {
     let difficulitySelect = document.getElementById('difficulity-levels');
     let difficulity = difficulitySelect.value;
+
+    // to set up the number of cards based on the difficulity level
+    switch (difficulity) {
+        case 'rookie-trainer':
+            renderCards(8);
+            break;
+        case 'pro-trainer':
+            renderCards(16);
+            break;
+        case 'master-trainer':
+            renderCards(32);
+            break;
+        default;
+        }
 }
 
 
@@ -38,12 +50,13 @@ function startTimer() {
 
 
 function updateTimer() {
-
+    let seconds = parseInt(document.getElementById("timer").innerText);
+    document.getElementById("timer").innerText = ++seconds;
 
 }
 
 function selectCard() {
-    
+
 
 }
 
