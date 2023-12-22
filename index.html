@@ -10,11 +10,40 @@
 
 <body>
     <div class="game-box">
+        <!-- Game Header Area -->
         <div class="game-header">
             <h1>Card Memory Game</h1>
-            <span><div id="timer">Time: 0s</div></span>
-            <span><bottun id="instructions-btn">instructions</bottun></span>
+            <div id="timer">Time: 0s</div>
+            <button id="instructions-btn">instructions</button>
         </div>
+        <!-- Game Board Area -->
+        <div class="game-board">
+
+        </div>
+        <!-- Game Scores Area -->
+            <div class="scores">
+                <p class="number-of-moves">Moves<span id="move">0</span></p>
+                <p class="number-of-matched-cards">Matched Cards<span id="matched">0</span></p>
+            </div>
+        <!-- Game Control Area --> 
+        <div class="game-control">
+            <div class="difficulity-levels">
+                <form>
+                    <label for="difficultiy-levels">Difficulity Level</label>
+                    <select id="difficulity-levels" name="difficulity-levels">
+                        <option value="rookie-trainer">Rookie Trainer (8 cards)</option>
+                        <option value="pro-trainer">Pro Trainer (16 Cards)</option>
+                        <option value="master-trainer">Master Trainer (32 Cards)</option>
+                    </select>
+                </form>
+            </div>
+            <button id="hint">Hint</button>
+            <button id="pause">Pause</button>
+            <button id="reset-btn">Reset</button>
+
+        </div>
+
+
     </div>
 </body>
 </html>
