@@ -26,11 +26,22 @@ h1 {
 
 
 /* Game Board Style */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Credit */
+    gap: 10px;
+}
 
 
 
 /* Game Scores Style */
-
+.game-scores {
+    box-sizing: content-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    text-align: center;
+}
 
 /* Game Control Style */
 
