@@ -9,13 +9,15 @@ body {
 
 /* Game Box Style */
 .game-box {
-    width: 70% ; /* to make  it responsive */
+        /* to make  it responsive */
+    width: 70%;
     background-color: aliceblue;
     padding: 1% 2% 2%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     align-items: center;
-    margin: 2% auto; /* to center it */
+    margin: 2% auto;
+    /* to center it */
 }
 
 /* Game Header Style */
@@ -28,9 +30,13 @@ h1 {
 /* Game Board Style */
 .game-board {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Credit */
+    grid-template-columns: repeat(4, 1fr);
+    /* Credit */
     gap: 10px;
 }
+
+/* Cards */
+
 
 
 
@@ -38,11 +44,20 @@ h1 {
 .game-scores {
     box-sizing: content-box;
     display: flex;
+        /* to make it responsive */
     flex-wrap: wrap;
     justify-content: space-evenly;
     text-align: center;
 }
 
 /* Game Control Style */
-
-
+.game-control {
+    box-sizing: content-box;
+    display: flex;
+        /* to make it responsive */
+    flex-wrap: wrap; 
+    justify-content: space-evenly;
+    text-align: center;
+    border: 2px solid gray;
+    padding: 10px;
+}
