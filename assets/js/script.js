@@ -163,7 +163,25 @@ function gameLost() {
 }
 
 function resetGame() {
-    document.getElementById(reset-btn);
+    document.getElementById('timer').innerText = `Time: ${seconds}s`;
+    document.getElementById("move").innerText = "0";
+    document.getElementById("matched").innerText = "0";
+    flippedCards = [];
+    selectedCards = [];
+    matchedCards = [];
+    firstCard = null;
+    secondCard = null;
+    seconds = 0;
+    moves = 0;
+    hintUsed = false;
+
+    // to reset matched cards
+    cards.forEach(card => {
+        card.classList.remove('matched');
+        card.style.transform = "rotateY(0deg)";
+    });
+
+
     startGame();
 }
 
