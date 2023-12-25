@@ -7,7 +7,6 @@
 body {
     background-color: lightpink;
     margin: 0 auto;
-    text-align: center;
     font-family: 'PT Sans', sans-serif;
     padding: 0;
 }
@@ -30,30 +29,37 @@ h1 {
     justify-content: center;
     font-family: 'Rubik Doodle Shadow', sans-serif;
     font-size: 2.5rem;
+    text-align: center;
 }
 
 
 /* Game Board Style */
 
 .game-board {
-    list-style-type: none;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     margin: 25px auto;
 }
+
 .card {
     width: 120px;
     height: 150px;
     box-sizing: border-box;
     margin: 5px;
-    border-radius: 5px;
-    border: 2px solid #000;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    /* to add 3D effect to cards when flipping */
+    transform-style: preserve-3d;
+    transition: all .3s; 
 }
 
 .card img {
     width: 100%;
+    height: 100%;
+    border: 2px solid #000;
+    position: absolute;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Game Scores Style */
