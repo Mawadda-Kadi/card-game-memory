@@ -7,6 +7,7 @@ let secondCard = null;
 let seconds = 0;
 let timer = null;
 let moves = 0;
+let hintUsed = false;
 
 // Event Listeners:
 document.getElementById('start-btn').addEventListener("click", startGame);
@@ -60,6 +61,7 @@ function startTimer() {
         document.getElementById('timer').innerText = `Time: ${seconds}s`;
     }, 1000);
 
+    //to set a time limit for the startTimer function
     setTimeout(gameLost, 120000);
     
 
@@ -167,6 +169,32 @@ function resetGame() {
 
 function displayInstructions() {
 
+}
+
+function hint() {
+    // Check if hint has been used
+    if (hintUsed) {
+        alert("You've already used the hint!");
+        return;
+    }
+
+    // to prevent multiple uses, so the hint will be marked as used
+    hintUsed = true;
+
+    // to get all unflipped cards
+    const unflippedCards = document.querySelectorAll('.card:not(.flipped)');
+
+    // to reveal all unflipped cards
+    unflippedCards.forEach(card => {
+        card.style.transform = "rotateY(180deg)";
+    });
+
+    // to set a time limit for the hint function
+    setTimeout(() => {
+        unflippedCards.forEach(card => {
+            card.style.transform = "rotateY(0deg)";
+        });
+    }, 1500); 
 }
 
 
