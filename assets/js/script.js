@@ -1,11 +1,13 @@
 let cards = document.querySelectorAll('.card');
 let flippedCards = [];
 let selectedCards = [];
+let matchedCards = [];
 let timer;
 
 cards.forEach(card => {
     card.addEventListener('click', flipCard);
 });
+
 
 // Functions
 
@@ -15,15 +17,18 @@ function startGame() {
     startTimer();
 }
 
-
+// Credit: imported from StackOverFlow
 function shuffleCards() {
-
+    let shuffleCards = () => {
+        cards.sort(() => Math.random() - 0.5);
+    };
 }
-
 
 function startTimer() {
 
 }
+
+
 
 
 function updateTimer() {
@@ -33,21 +38,41 @@ function updateTimer() {
 }
 
 function flipCard() {
-     if (flippedCards.length < 2 && !flippedCards.includes(this)) {
+    // to prevent double click on the card
+    if (this.classList.contains('flipped')) return;
+
+    if (flippedCards.length < 2 && !flippedCards.includes(this)) {
         this.style.transform = "rotateY(180deg)";
-        //this.classList.add('flipped');
+        this.classList.add('flipped');
         flippedCards.push(cards[this]);
         selectedCards.push(this);
 
         if (flippedCards.length === 2) {
-            setTimeout(checkMatch, 1000);
+            setTimeout(checkForMatch, 1000);
         }
     }
 }
 
-function checkForMatch() {
-    
 
+function checkForMatch() {
+    let firstCard = flippedCards[0].firstElementChild.src;
+    let secondCard = flippedCards[1].firstElementChild.src;
+    if (firstCard === secondCard) {
+        alert("good");
+        firstCard.classList.add('matched');
+        secondCard.classList.add('matched');
+        matchedCards.push(firstCard, secondCard);
+    } else {
+        returnFlippedcards();
+    }
+}
+
+function returnFlippedcards() {
+    firstCard.classList.remove('flipped');
+    firstCard.style.transform = "rotateY(0deg)"
+    secondCard.classList.remove('flipped');
+    secondCard.style.transform = "rotateY(0deg)"
+    flippedCards = [];
 }
 
 // Credit: this function code from Love Maths tutorial
@@ -72,7 +97,7 @@ function gameWon() {
 }
 
 function displayGameOverModal() {
-    if(gameWon) {
+    if (gameWon) {
         alert("Good Job Trainer! You caught'em all"); // display also time and moves
     }
 
