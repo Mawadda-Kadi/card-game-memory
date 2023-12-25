@@ -1,21 +1,5 @@
-let cards = [
-    "bulbasaur-card.jpg",
-    "charmander-card.jpg",
-    "dratini-card.jpg",
-    "lickitung-card.jpg",
-    "oshawott-card.jpg",
-    "pickachu-card.jpg",
-    "scorbunny-card.jpg",
-    "togepi-card.jpg",
-    "bulbasaur-card.jpg",
-    "charmander-card.jpg",
-    "dratini-card.jpg",
-    "lickitung-card.jpg",
-    "oshawott-card.jpg",
-    "pickachu-card.jpg",
-    "scorbunny-card.jpg",
-    "togepi-card.jpg",
-];
+let cards = document.querySelectorAll(".card");
+
 let timer;
 
 
@@ -38,8 +22,9 @@ function shuffleCards() {
 
 
 function renderCards() {
-
-
+    cards.forEach(card => {
+        card.addEventListener('click', selectCard);
+    })
 }
 
 function startTimer() {
@@ -54,8 +39,7 @@ function updateTimer() {
 }
 
 function selectCard() {
-
-
+    this.classList.add('flip');
 }
 
 function filpCard() {
