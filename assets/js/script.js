@@ -6,6 +6,8 @@ let firstCard = null;
 let secondCard = null;
 let seconds = 0;
 let timer = null;
+let moves = 0;
+
 
 cards.forEach(card => {
     card.addEventListener('click', flipCard);
@@ -28,7 +30,7 @@ function shuffleCards() {
 };
 
 
-
+// Credit: fixed by  my mentor
 function startTimer() {
     timer = setInterval(() => {
         document.getElementById('timer').innerText = `Time: ${seconds} seconds`;
