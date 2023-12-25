@@ -1,17 +1,17 @@
-let cards = document.querySelectorAll(".card");
-
+let cards = document.querySelectorAll('.card');
+let flippedCards = [];
+let selectedCards = [];
 let timer;
 
+cards.forEach(card => {
+    card.addEventListener('click', flipCard);
+});
 
-window.onload = function() {
-    startGame();
-}
 // Functions
 
 // to initialize the game
 function startGame() {
     shuffleCards();
-    renderCards();
     startTimer();
 }
 
@@ -20,12 +20,6 @@ function shuffleCards() {
 
 }
 
-
-function renderCards() {
-    cards.forEach(card => {
-        card.addEventListener('click', selectCard);
-    })
-}
 
 function startTimer() {
 
@@ -38,15 +32,21 @@ function updateTimer() {
 
 }
 
-function selectCard() {
-    this.classList.add('flip');
-}
+function flipCard() {
+     if (flippedCards.length < 2 && !flippedCards.includes(this)) {
+        this.style.transform = "rotateY(180deg)";
+        //this.classList.add('flipped');
+        flippedCards.push(cards[this]);
+        selectedCards.push(this);
 
-function filpCard() {
-
+        if (flippedCards.length === 2) {
+            setTimeout(checkMatch, 1000);
+        }
+    }
 }
 
 function checkForMatch() {
+    
 
 }
 
@@ -64,11 +64,17 @@ function updateMoves() {
 }
 
 function gameWon() {
+    if (oldNumberOFCheckedCards === 8) {
+        displayGameOverModal();
+        resetGame();
+    }
 
 }
 
 function displayGameOverModal() {
-
+    if(gameWon) {
+        alert("Good Job Trainer! You caught'em all"); // display also time and moves
+    }
 
 }
 
@@ -77,7 +83,7 @@ function pauseOrResume() {
 
 }
 
-function restGame() {
+function resetGame() {
 
 
 }
