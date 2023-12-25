@@ -1,7 +1,11 @@
 let cards = document.querySelectorAll('.card');
 let flippedCards = [];
 let selectedCards = [];
-let matchedCards = document.querySelectorAll('.card.matched')[0];
+let matchedCards = [];
+let firstCard = null;
+let secondCard = null;
+let seconds = 0;
+let timer = null;
 
 cards.forEach(card => {
     card.addEventListener('click', flipCard);
@@ -17,20 +21,20 @@ function startGame() {
 }
 
 // Credit: imported from StackOverFlow
+// fix
 function shuffleCards() {
-    let shuffleCards = cards.sort(() => Math.random() - 0.5);
-    };
+    cards = Array.from(cards);
+    cards.sort(() => Math.random() - 0.5);
+};
 
 
 
 function startTimer() {
-    let timer = document.getElementById('timer');
-    
-    // Credit: imported from ... 
-    let seconds = Math.floor((Date.now() - startTimer) / 1000);//
-    
-    timer.textContent = `Time: ${seconds}s`;
-    ++seconds;
+    timer = setInterval(() => {
+        document.getElementById('timer').innerText = `Time: ${seconds} seconds`;
+        seconds += 1;
+    }, 1000);
+
 }
 
 function flipCard() {
@@ -51,15 +55,19 @@ function flipCard() {
 
 
 function checkForMatch() {
-    const firstCard = document.querySelectorAll('.card.flip')[0].firstElementChild.src;
-    const secondCard = document.querySelectorAll('.card.flip')[1].firstElementChild.src;
-    if (firstCard === secondCard) {
+    firstCard = document.querySelectorAll('.card.flipped')[0];
+    secondCard = document.querySelectorAll('.card.flipped')[1];
+    if (firstCard.firstElementChild.src === secondCard.firstElementChild.src) {
         alert("good");
         firstCard.classList.add('matched');
         secondCard.classList.add('matched');
+        firstCard.classList.remove('flipped');
+        secondCard.classList.remove('flipped');
         matchedCards.push(firstCard, secondCard);
         updateNumberOfMatchedCards();
-    } else {
+        flippedCards = [];
+    }
+    else {
         returnFlippedcards();
     }
 }
@@ -75,7 +83,7 @@ function returnFlippedcards() {
 
 function updateNumberOfMatchedCards() {
     let oldNumberOFCheckedCards = parseInt(document.getElementById("matched").innerText);
-    document.getElementById("matched").innerText = ++oldCheckedCards;
+    document.getElementById("matched").innerText = ++oldNumberOFCheckedCards;
 }
 
 
@@ -86,7 +94,7 @@ function updateMoves() {
 }
 
 function gameWon() {
-    if (oldNumberOFCheckedCards === 8) {
+    if (matchedCards === 8) {
         displayGameOverModal();
         resetGame();
     }
@@ -106,6 +114,7 @@ function pauseOrResume() {
 }
 
 function resetGame() {
+
 
 
 }
