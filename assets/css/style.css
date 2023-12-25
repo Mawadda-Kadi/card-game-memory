@@ -51,6 +51,7 @@ h1 {
     /* to add 3D effect to cards when flipping */
     transform-style: preserve-3d;
     transition: all .3s; 
+    backface-visibility: hidden;
 }
 
 .card img {
@@ -61,7 +62,6 @@ h1 {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    backface-visibility: hidden;
 }
 
 /* to make card face flipped from beginning, so when the card flips back, the face appears */
