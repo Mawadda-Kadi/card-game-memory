@@ -2,7 +2,6 @@ let cards = document.querySelectorAll('.card');
 let flippedCards = [];
 let selectedCards = [];
 let matchedCards = [];
-let timer;
 
 cards.forEach(card => {
     card.addEventListener('click', flipCard);
@@ -24,8 +23,11 @@ function shuffleCards() {
     };
 }
 
+// Credit: imported from ... 
 function startTimer() {
-
+    let timer = document.getElementById('timer');
+    let seconds = Math.floor((Date.now() - starTime) / 1000);
+    timer.textContent = `Time: ${seconds}s`;
 }
 
 
@@ -55,13 +57,14 @@ function flipCard() {
 
 
 function checkForMatch() {
-    let firstCard = flippedCards[0].firstElementChild.src;
-    let secondCard = flippedCards[1].firstElementChild.src;
+    const firstCard = flippedCards[0].firstElementChild.src;
+    const secondCard = flippedCards[1].firstElementChild.src;
     if (firstCard === secondCard) {
         alert("good");
         firstCard.classList.add('matched');
         secondCard.classList.add('matched');
         matchedCards.push(firstCard, secondCard);
+        updateNumberOfMatchedCards();
     } else {
         returnFlippedcards();
     }
@@ -75,13 +78,13 @@ function returnFlippedcards() {
     flippedCards = [];
 }
 
-// Credit: this function code from Love Maths tutorial
+
 function updateNumberOfMatchedCards() {
     let oldNumberOFCheckedCards = parseInt(document.getElementById("matched").innerText);
     document.getElementById("matched").innerText = ++oldCheckedCards;
 }
 
-// Credit: this function code from Love Maths tutorial
+
 function updateMoves() {
     let oldNumberOfMoves = parseInt(document.getElementById("move").innerText);
     document.getElementById("move").innerText = ++oldNumberOFCheckedCards;
