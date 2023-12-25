@@ -7,36 +7,61 @@ let secondCard = null;
 let seconds = 0;
 let timer = null;
 let moves = 0;
-let reset = document.getElementById('reset-btn');
-    reset.addEventListener('click', resetGame);
 
-cards.forEach(card => {
-    card.addEventListener('click', flipCard);
-});
+// Event Listeners:
+document.getElementById('start-btn').addEventListener("click", startGame);
+document.getElementById('reset-btn').addEventListener("click", resetGame);
+document.getElementById('pause-btn').addEventListener('click', pauseOrResume);
+document.getElementById('hint-btn').addEventListener('click', hint);
+document.getElementById('instructions-btn').addEventListener('click', displayInstructions);
 
-startGame();
+
+
 // Functions
 
 // to initialize the game
 function startGame() {
+    document.getElementById('start');
     shuffleCards();
     startTimer();
+    cards.forEach(card => {
+        card.addEventListener('click', flipCard);
+    });
 }
 
 // Credit: imported from StackOverFlow
 // fix
 function shuffleCards() {
-    cards = Array.from(cards);
-    cards.sort(() => Math.random() - 0.5);
-};
+    const cardArray = Array.from(cards);
+    const shuffledCards = [];
+
+    while (cardArray.length > 0) {
+        const randomIndex = Math.floor(Math.random() * cardArray.length);
+        const randomCard = cardArray.splice(randomIndex, 1)[0];
+        shuffledCards.push(randomCard);
+    }
+
+    // Clear the game-board and append the shuffled cards
+    const gameBoard = document.querySelector('.game-board');
+    gameBoard.innerHTML = '';
+    shuffledCards.forEach(card => gameBoard.appendChild(card));
+
+    // Update the 'cards' variable with the shuffled cards
+    cards = Array.from(document.querySelectorAll('.card'));
+}
 
 
 // Credit: fixed by  my mentor
 function startTimer() {
+    document.getElementById('timer').innerText = `Time: ${seconds}s`;
+
     timer = setInterval(() => {
-        document.getElementById('timer').innerText = `Time: ${seconds} seconds`;
         seconds += 1;
+        document.getElementById('timer').innerText = `Time: ${seconds}s`;
     }, 1000);
+
+    setTimeout(gameLost, 120000);
+    
 
 }
 
@@ -49,9 +74,11 @@ function flipCard() {
         this.classList.add('flipped');
         flippedCards.push(cards[this]);
         selectedCards.push(this);
+        updateMoves();
 
         if (flippedCards.length === 2) {
             setTimeout(checkForMatch, 1000);
+            
         }
     }
 }
@@ -61,7 +88,6 @@ function checkForMatch() {
     firstCard = document.querySelectorAll('.card.flipped')[0];
     secondCard = document.querySelectorAll('.card.flipped')[1];
     if (firstCard.firstElementChild.src === secondCard.firstElementChild.src) {
-        alert("good");
         firstCard.classList.add('matched');
         secondCard.classList.add('matched');
         firstCard.classList.remove('flipped');
@@ -92,12 +118,11 @@ function updateNumberOfMatchedCards() {
 
 function updateMoves() {
     let oldNumberOfMoves = parseInt(document.getElementById("move").innerText);
-    document.getElementById("move").innerText = ++oldNumberOFCheckedCards;
-
+    document.getElementById("move").innerText = ++oldNumberOfMoves;
 }
 
 function gameWon() {
-    if (matchedCards === 8) {
+    if (matchedCards.length === 8) {
         displayGameOverModal();
         resetGame();
     }
@@ -112,15 +137,36 @@ function displayGameOverModal() {
 }
 
 function pauseOrResume() {
+    if (timer) {
+        clearInterval(timer);
+        timer = null;
+        document.getElementById('pause-btn').innerText = 'Resume';
+        // to prevent user from clicking cards while pausing
+        cards.forEach(card => {
+            card.removeEventListener('click', flipCard);
+        });
+    } else {
+        startTimer();
+        document.getElementById('pause-btn').innerText = 'Pause';
+        // to allow user to continue playing
+        cards.forEach(card => {
+            card.addEventListener('click', flipCard);
+        });
+    }
 
+}
+
+function gameLost() {
 
 }
 
 function resetGame() {
-    clearInterval();
-    flippedCards = [];
-    moves = 0;
-    matchedCards = 0;
+    document.getElementById(reset-btn);
+    startGame();
+}
+
+function displayInstructions() {
+
 }
 
 
