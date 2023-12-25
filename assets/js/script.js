@@ -1,36 +1,34 @@
-let cards = [];
+let cards = [
+    "bulbasaur-card.jpg",
+    "charmander-card.jpg",
+    "dratini-card.jpg",
+    "lickitung-card.jpg",
+    "oshawott-card.jpg",
+    "pickachu-card.jpg",
+    "scorbunny-card.jpg",
+    "togepi-card.jpg",
+    "bulbasaur-card.jpg",
+    "charmander-card.jpg",
+    "dratini-card.jpg",
+    "lickitung-card.jpg",
+    "oshawott-card.jpg",
+    "pickachu-card.jpg",
+    "scorbunny-card.jpg",
+    "togepi-card.jpg",
+];
 let timer;
 
 
-
+window.onload = function() {
+    startGame();
+}
 // Functions
 
 // to initialize the game
 function startGame() {
-    difficulityLevel();
     shuffleCards();
     renderCards();
     startTimer();
-}
-
-// to get the selected level from the dropdown menu
-function difficulityLevel() {
-    let difficulitySelect = document.getElementById('difficulity-levels');
-    let difficulity = difficulitySelect.value;
-
-    // to set up the number of cards based on the difficulity level
-    switch (difficulity) {
-        case 'rookie-trainer':
-            renderCards(8);
-            break;
-        case 'pro-trainer':
-            renderCards(16);
-            break;
-        case 'master-trainer':
-            renderCards(32);
-            break;
-        default;
-        }
 }
 
 
