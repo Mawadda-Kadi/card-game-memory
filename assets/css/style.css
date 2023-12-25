@@ -29,19 +29,20 @@ body {
 h1 {
     justify-content: center;
     font-family: 'Rubik Doodle Shadow', sans-serif;
+    font-size: 2.5rem;
 }
 
 
 /* Game Board Style */
 
-.card-list {
+.game-board {
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin: 25px auto;
 }
-.card-list li {
+.card {
     width: 120px;
     height: 150px;
     box-sizing: border-box;
@@ -51,9 +52,8 @@ h1 {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-#card img {
+.card img {
     width: 100%;
-    background-image: url("../assets/media/flipped-back-card.jpg");
 }
 
 /* Game Scores Style */
