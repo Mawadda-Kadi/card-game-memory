@@ -1,13 +1,13 @@
 let cards = document.querySelectorAll('.card');
 let flippedCards = [];
 let selectedCards = [];
-let matchedCards = [];
+let matchedCards = document.querySelectorAll('.card.matched')[0];
 
 cards.forEach(card => {
     card.addEventListener('click', flipCard);
 });
 
-
+startGame();
 // Functions
 
 // to initialize the game
@@ -18,25 +18,19 @@ function startGame() {
 
 // Credit: imported from StackOverFlow
 function shuffleCards() {
-    let shuffleCards = () => {
-        cards.sort(() => Math.random() - 0.5);
+    let shuffleCards = cards.sort(() => Math.random() - 0.5);
     };
-}
 
-// Credit: imported from ... 
+
+
 function startTimer() {
     let timer = document.getElementById('timer');
-    let seconds = Math.floor((Date.now() - starTime) / 1000);
+    
+    // Credit: imported from ... 
+    let seconds = Math.floor((Date.now() - startTimer) / 1000);//
+    
     timer.textContent = `Time: ${seconds}s`;
-}
-
-
-
-
-function updateTimer() {
-    let seconds = parseInt(document.getElementById("timer").innerText);
-    document.getElementById("timer").innerText = ++seconds;
-
+    ++seconds;
 }
 
 function flipCard() {
@@ -57,8 +51,8 @@ function flipCard() {
 
 
 function checkForMatch() {
-    const firstCard = flippedCards[0].firstElementChild.src;
-    const secondCard = flippedCards[1].firstElementChild.src;
+    const firstCard = document.querySelectorAll('.card.flip')[0].firstElementChild.src;
+    const secondCard = document.querySelectorAll('.card.flip')[1].firstElementChild.src;
     if (firstCard === secondCard) {
         alert("good");
         firstCard.classList.add('matched');
@@ -72,9 +66,9 @@ function checkForMatch() {
 
 function returnFlippedcards() {
     firstCard.classList.remove('flipped');
-    firstCard.style.transform = "rotateY(0deg)"
+    firstCard.style.transform = "rotateY(0deg)";
     secondCard.classList.remove('flipped');
-    secondCard.style.transform = "rotateY(0deg)"
+    secondCard.style.transform = "rotateY(0deg)";
     flippedCards = [];
 }
 
