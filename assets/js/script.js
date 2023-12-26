@@ -54,6 +54,9 @@ function shuffleCards() {
 
 // Credit: fixed by  my mentor
 function startTimer() {
+    // to avoid acceleration when reseting game
+    clearInterval(timer);
+
     document.getElementById('timer').innerText = `Time: ${seconds}s`;
 
     timer = setInterval(() => {
