@@ -110,6 +110,35 @@ button {
     font-weight: 600;
 }
 
+/* Game Instructions Style */
+.instruction-box {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.instruction-content {
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+#close-instruction-btn {
+    font-size: 16px;
+    padding: 5px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    text-align: center;
+}
+
 
 /* Media Queries */
 @media (max-width: 736px) {
@@ -157,6 +186,10 @@ button {
     }
 
     button {
+        font-size: 15px;
+    }
+
+    .game-scores {
         font-size: 15px;
     }
 
