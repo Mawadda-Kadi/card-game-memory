@@ -117,13 +117,13 @@ function returnFlippedcards() {
 
 // Credit: from Love Maths Tutorial
 function updateNumberOfMatchedCards() {
-    const oldNumberOfMatchedCards = parseInt(document.getElementById("matched").innerText);
+    let oldNumberOfMatchedCards = parseInt(document.getElementById("matched").innerText);
     document.getElementById("matched").innerText = ++oldNumberOfMatchedCards;
 }
 
 // Credit: from Love Maths Tutorial
 function updateMoves() {
-    const oldNumberOfMoves = parseInt(document.getElementById("move").innerText);
+    let oldNumberOfMoves = parseInt(document.getElementById("move").innerText);
     document.getElementById("move").innerText = ++oldNumberOfMoves;
 }
 
@@ -145,9 +145,9 @@ function gameLost() {
 }
 
 function displayGameOverModal(message) {
-    const modal = document.querySelector('.gameover-modal'); 
-    const oldNumberOfMoves = parseInt(document.getElementById("move").innerText);
-    const oldNumberOfMatchedCards = parseInt(document.getElementById("matched").innerText);
+    let modal = document.querySelector('.gameover-modal'); 
+    let oldNumberOfMoves = parseInt(document.getElementById("move").innerText);
+    let oldNumberOfMatchedCards = parseInt(document.getElementById("matched").innerText);
     modal.innerText = `${message} .. You spent ${seconds}s,
     moved ${oldNumberOfMoves} times, and matched ${oldNumberOfMatchedCards} cards`;
 }
