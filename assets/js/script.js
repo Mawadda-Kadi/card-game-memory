@@ -31,7 +31,6 @@ function startGame() {
 }
 
 // Credit: imported from StackOverFlow
-// fix
 function shuffleCards() {
     const cardArray = Array.from(cards);
     const shuffledCards = [];
@@ -71,16 +70,16 @@ function startTimer() {
 }
 
 function flipCard() {
-    // to prevent double click on the card
+    // to prevent double click on the card or select three cards in one turn
     if (this.classList.contains('flipped')) return;
 
     if (flippedCards.length < 2 && !flippedCards.includes(this)) {
         this.style.transform = "rotateY(180deg)";
         this.classList.add('flipped');
         flippedCards.push(cards[this]);
-        // selectedCards.push(this);
         updateMoves();
 
+        // to allow enough time to have a look to filpped cards before flipping back
         if (flippedCards.length === 2) {
             setTimeout(checkForMatch, 1000);
             
@@ -100,6 +99,7 @@ function checkForMatch() {
         matchedCards.push(firstCard, secondCard);
         updateNumberOfMatchedCards();
         flippedCards = [];
+        gameWon();
     }
     else {
         returnFlippedcards();
@@ -116,8 +116,8 @@ function returnFlippedcards() {
 
 
 function updateNumberOfMatchedCards() {
-    let oldNumberOFCheckedCards = parseInt(document.getElementById("matched").innerText);
-    document.getElementById("matched").innerText = ++oldNumberOFCheckedCards;
+    let oldNumberOfMatchedCards = parseInt(document.getElementById("matched").innerText);
+    document.getElementById("matched").innerText = ++oldNumberOfMatchedCards;
 }
 
 
@@ -127,11 +127,10 @@ function updateMoves() {
 }
 
 function gameWon() {
-    if (matchedCards.length === 8) {
+    if (matchedCards.length === cards.length / 2) {
         displayGameOverModal();
         resetGame();
     }
-
 }
 
 function displayGameOverModal() {
@@ -166,6 +165,7 @@ function gameLost() {
 }
 
 function resetGame() {
+    // to reset all variables
     document.getElementById('timer').innerText = `Time: ${seconds}s`;
     document.getElementById("move").innerText = "0";
     document.getElementById("matched").innerText = "0";
