@@ -113,7 +113,8 @@ button {
 
 /* Game Instructions Style */
 .instruction-box,
-.modal {
+.start-modal-box,
+.gameover-modal {
     display: none;
     position: fixed;
     top: 50%;
@@ -126,7 +127,8 @@ button {
 }
 
 .instruction-content,
-.modal-content {
+.modal-content,
+#gameover-message {
     margin-bottom: 15px;
     font-weight: 600;
 }

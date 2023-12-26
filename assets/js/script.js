@@ -1,4 +1,4 @@
- // to display the start modal when the page loads
+// to display the start modal when the page loads
 document.addEventListener('DOMContentLoaded', function () {
     displayStartModal();
     document.getElementById('start-game-btn').addEventListener('click', startGame);
@@ -87,7 +87,7 @@ function startTimer() {
 
     //to set a time limit for the startTimer function
     setTimeout(gameLost, 120000);
-    
+
 
 }
 
@@ -104,7 +104,7 @@ function flipCard() {
 
         // to allow enough time to have a look to filpped cards before flipping back
         if (flippedCards.length === 2) {
-            setTimeout(checkForMatch, 1000); 
+            setTimeout(checkForMatch, 1000);
         }
     }
 }
@@ -166,11 +166,13 @@ function gameLost() {
 }
 
 function displayGameOverModal(message) {
-    let modal = document.querySelector('.gameover-modal'); 
+    let modal = document.querySelector('.gameover-modal');
+    let gameoverMessage = document.getElementById('gameover-message');
     let oldNumberOfMoves = parseInt(document.getElementById("move").innerText);
     let oldNumberOfMatchedCards = parseInt(document.getElementById("matched").innerText);
-    modal.innerText = `${message} .. You spent ${seconds}s,
+    gameoverMessage.innerText = `${message} .. You spent ${seconds}s,
     moved ${oldNumberOfMoves} times, and matched ${oldNumberOfMatchedCards} cards`;
+    modal.style.display = 'block';
 }
 
 function pauseOrResume() {
@@ -215,7 +217,7 @@ function resetGame() {
 
     // to clear gameover modal content
     document.querySelector('.gameover-modal').innerText = "";
-    
+
     startGame();
 }
 
@@ -251,5 +253,5 @@ function hint() {
         unflippedCards.forEach(card => {
             card.style.transform = "rotateY(0deg)";
         });
-    }, 1500); 
+    }, 1500);
 }
