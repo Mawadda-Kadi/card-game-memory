@@ -55,6 +55,7 @@ function shuffleCards() {
 function startTimer() {
     // to avoid acceleration when reseting game
     clearInterval(timer);
+    timer = null;
 
     document.getElementById('timer').innerText = `Time: ${seconds}s`;
 
@@ -127,17 +128,28 @@ function updateMoves() {
 }
 
 function gameWon() {
-    if (matchedCards.length === cards.length / 2) {
-        displayGameOverModal();
-        resetGame();
+    if (matchedCards.length === cards.length) {
+        displayGameOverModal("Great Job Trainer! You caught 'em all");
+        clearInterval(timer);
+        timer = null;
+        // resetGame();
     }
 }
 
-function displayGameOverModal() {
-    if (gameWon) {
-        alert("Good Job Trainer! You caught'em all"); // display also time and moves
+function gameLost() {
+    if (!gameWon() && seconds >= 120) {
+        displayGameOverModal("Sorry, you couldn't catch 'em all in time!");
+        clearInterval(timer);
+        timer = null;
     }
+}
 
+function displayGameOverModal(message) {
+    let modal = document.querySelector('.gameover-modal'); 
+    let oldNumberOfMoves = parseInt(document.getElementById("move").innerText);
+    let oldNumberOfMatchedCards = parseInt(document.getElementById("matched").innerText);
+    modal.innerText = `${message} .. You spent ${seconds}s,
+    moved ${oldNumberOfMoves} times, and matched ${oldNumberOfMatchedCards} cards`;
 }
 
 function pauseOrResume() {
@@ -157,10 +169,6 @@ function pauseOrResume() {
             card.addEventListener('click', flipCard);
         });
     }
-
-}
-
-function gameLost() {
 
 }
 
@@ -184,7 +192,9 @@ function resetGame() {
         card.style.transform = "rotateY(0deg)";
     });
 
-
+    // to clear gameover modal content
+    document.querySelector('.gameover-modal').innerText = "";
+    
     startGame();
 }
 
