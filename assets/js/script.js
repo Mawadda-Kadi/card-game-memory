@@ -75,7 +75,7 @@ function flipCard() {
         this.style.transform = "rotateY(180deg)";
         this.classList.add('flipped');
         flippedCards.push(cards[this]);
-        selectedCards.push(this);
+        // selectedCards.push(this);
         updateMoves();
 
         if (flippedCards.length === 2) {

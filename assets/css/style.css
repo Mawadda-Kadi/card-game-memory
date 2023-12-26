@@ -69,9 +69,11 @@ h1 {
     transform: rotateY(180deg);
 }
 
+
+
 /* to add 3D effect to cards when hovering */
-.card img:hover {
-    transform: scale3d(1.1, 1.1, 1.1);
+.card img:active {
+    transform: scale(1.2);
 }
 
 
