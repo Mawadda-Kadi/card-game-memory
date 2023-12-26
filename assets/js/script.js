@@ -16,6 +16,7 @@ document.getElementById('reset-btn').addEventListener("click", resetGame);
 document.getElementById('pause-btn').addEventListener('click', pauseOrResume);
 document.getElementById('hint-btn').addEventListener('click', hint);
 document.getElementById('instructions-btn').addEventListener('click', displayInstructions);
+document.getElementById('close-instruction-btn').addEventListener('click', closeInstructions);
 
 // Functions
 
@@ -197,7 +198,12 @@ function resetGame() {
 }
 
 function displayInstructions() {
+    document.getElementById('instructionBox').style.display = 'block';
 
+}
+
+function closeInstructions() {
+    document.getElementById('instructionBox').style.display = 'none';
 }
 
 function hint() {
