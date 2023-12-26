@@ -30,7 +30,7 @@ function startGame() {
     });
 }
 
-// Credit: imported from StackOverFlow
+// Credit: imported from StackOverFlow (https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array)
 function shuffleCards() {
     const cardArray = Array.from(cards);
     const shuffledCards = [];
@@ -51,7 +51,7 @@ function shuffleCards() {
 }
 
 
-// Credit: fixed by  my mentor
+// Credit: fixed by  my mentor "Antonio Rodriguez"
 function startTimer() {
     // to avoid acceleration when reseting game
     clearInterval(timer);
@@ -70,6 +70,7 @@ function startTimer() {
 
 }
 
+//Credit: imported from a tutorial video
 function flipCard() {
     // to prevent double click on the card or select three cards in one turn
     if (this.classList.contains('flipped')) return;
@@ -114,15 +115,15 @@ function returnFlippedcards() {
     flippedCards = [];
 }
 
-
+// Credit: from Love Maths Tutorial
 function updateNumberOfMatchedCards() {
-    let oldNumberOfMatchedCards = parseInt(document.getElementById("matched").innerText);
+    const oldNumberOfMatchedCards = parseInt(document.getElementById("matched").innerText);
     document.getElementById("matched").innerText = ++oldNumberOfMatchedCards;
 }
 
-
+// Credit: from Love Maths Tutorial
 function updateMoves() {
-    let oldNumberOfMoves = parseInt(document.getElementById("move").innerText);
+    const oldNumberOfMoves = parseInt(document.getElementById("move").innerText);
     document.getElementById("move").innerText = ++oldNumberOfMoves;
 }
 
@@ -144,9 +145,9 @@ function gameLost() {
 }
 
 function displayGameOverModal(message) {
-    let modal = document.querySelector('.gameover-modal'); 
-    let oldNumberOfMoves = parseInt(document.getElementById("move").innerText);
-    let oldNumberOfMatchedCards = parseInt(document.getElementById("matched").innerText);
+    const modal = document.querySelector('.gameover-modal'); 
+    const oldNumberOfMoves = parseInt(document.getElementById("move").innerText);
+    const oldNumberOfMatchedCards = parseInt(document.getElementById("matched").innerText);
     modal.innerText = `${message} .. You spent ${seconds}s,
     moved ${oldNumberOfMoves} times, and matched ${oldNumberOfMatchedCards} cards`;
 }

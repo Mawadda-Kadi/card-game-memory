@@ -48,6 +48,7 @@ h1 {
     margin: 10px;
     position: relative;
     /* to add 3D effect to cards when flipping */
+    /* Credit: the simillar rotation method implemented as in https: //www.youtube.com/watch?v=T-UbMN25s5I */
     transform-style: preserve-3d;
     transition: all .3s;
     backface-visibility: hidden;
