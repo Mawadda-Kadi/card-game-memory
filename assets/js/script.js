@@ -17,23 +17,6 @@ document.getElementById('pause-btn').addEventListener('click', pauseOrResume);
 document.getElementById('hint-btn').addEventListener('click', hint);
 document.getElementById('instructions-btn').addEventListener('click', displayInstructions);
 
-// Event Listeners for mouseover & mouseout:
-document.getElementById('start-btn').addEventListener("mouseover", () => showHoverText("Start the Game"));
-document.getElementById('start-btn').addEventListener("mouseout", hideHoverText);
-
-document.getElementById('pause-btn').addEventListener("mouseover", () => showHoverText("Pause or Resume the Game"));
-document.getElementById('pause-btn').addEventListener("mouseout", hideHoverText);
-
-document.getElementById('hint-btn').addEventListener("mouseover", () => showHoverText("Use Hint (can be used only once)"));
-document.getElementById('hint-btn').addEventListener("mouseout", hideHoverText);
-
-document.getElementById('reset-btn').addEventListener("mouseover", () => showHoverText("Reset the Game"));
-document.getElementById('reset-btn').addEventListener("mouseout", hideHoverText);
-
-document.getElementById('instructions-btn').addEventListener("mouseover", () => showHoverText("Game Instructions"));
-document.getElementById('instructions-btn').addEventListener("mouseout", hideHoverText);
-
-
 // Functions
 
 // to initialize the game
@@ -242,5 +225,3 @@ function hint() {
         });
     }, 1500); 
 }
-
-
