@@ -1,3 +1,9 @@
+ // to display the start modal when the page loads
+document.addEventListener('DOMContentLoaded', function () {
+    displayStartModal();
+    document.getElementById('start-game-btn').addEventListener('click', startGame);
+});
+
 // Variables
 let cards = document.querySelectorAll('.card');
 let flippedCards = [];
@@ -11,7 +17,6 @@ let moves = 0;
 let hintUsed = false;
 
 // Event Listeners for click:
-document.getElementById('start-btn').addEventListener("click", startGame);
 document.getElementById('reset-btn').addEventListener("click", resetGame);
 document.getElementById('pause-btn').addEventListener('click', pauseOrResume);
 document.getElementById('hint-btn').addEventListener('click', hint);
@@ -20,9 +25,25 @@ document.getElementById('close-instruction-btn').addEventListener('click', close
 
 // Functions
 
+function displayStartModal() {
+    const startModal = document.getElementById('start-modal');
+    startModal.style.display = 'block';
+
+    // to close the modal and start the game when the start button is clicked
+    document.getElementById('start-game-btn').addEventListener('click', function () {
+        startModal.style.display = 'none';
+        startGame();
+    });
+}
+
+function closeModal() {
+    const startModal = document.getElementById('start-modal');
+    startModal.style.display = 'none';
+}
+
 // to initialize the game
 function startGame() {
-    document.getElementById('start');
+    document.getElementById('start-game-btn');
     shuffleCards();
     startTimer();
     cards.forEach(card => {
@@ -218,7 +239,7 @@ function hint() {
     hintUsed = true;
 
     // to get all unflipped cards
-    const unflippedCards = document.querySelectorAll('.card:not(.flipped)');
+    let unflippedCards = document.querySelectorAll('.card:not(.matched)');
 
     // to reveal all unflipped cards
     unflippedCards.forEach(card => {

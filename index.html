@@ -19,6 +19,16 @@
 </head>
 
 <body>
+    <!-- Modal Overlay for Start Message -->
+    <div id="start-modal" class="modal">
+        <div class="modal-content">
+            <p>Welcome Trainer to the Card Memory Game!</p>
+            <p>You gotta catch 'em all.</p>
+            <p>Click "Start Game" to begin the challenge.</p>
+            <button id="start-game-btn" title="Start the Game">Start Game</button>
+        </div>
+    </div>
+
     <div class="game-box">
         
         <!-- Game Header Area -->
@@ -121,7 +131,7 @@
         
             <!-- Game Control Area --> 
         <div class="game-control">
-            <button id="start-btn" title="Start the Game">Start Game</button>
+            <!-- <button id="start-btn" title="Start the Game">Start Game</button> -->
             <button id="pause-btn" title="Pause or Resume the Game">Pause</button>
             <button id="hint-btn" title="Reveal all Cards for 1.5s (can be used only once)">Hint</button>
             <button id="reset-btn" title="Reset the Game">Reset</button>
@@ -143,6 +153,6 @@
     </div>
 
     <!-- Script.js -->
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js" defer></script>
 </body>
 </html>

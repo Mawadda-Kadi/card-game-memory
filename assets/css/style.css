@@ -112,7 +112,8 @@ button {
 }
 
 /* Game Instructions Style */
-.instruction-box {
+.instruction-box,
+.modal {
     display: none;
     position: fixed;
     top: 50%;
@@ -124,12 +125,14 @@ button {
     z-index: 999;
 }
 
-.instruction-content {
+.instruction-content,
+.modal-content {
     margin-bottom: 15px;
     font-weight: 600;
 }
 
-#close-instruction-btn {
+#close-instruction-btn,
+#start-game-btn {
     font-size: 16px;
     padding: 5px;
     background-color: #3498db;
