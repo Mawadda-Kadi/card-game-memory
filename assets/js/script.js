@@ -153,7 +153,8 @@ function gameWon() {
         displayGameOverModal("Great Job Trainer! You caught 'em all");
         clearInterval(timer);
         timer = null;
-        // resetGame();
+        
+
     }
 }
 
@@ -217,6 +218,7 @@ function resetGame() {
 
     // to clear gameover modal content
     document.querySelector('.gameover-modal').innerText = "";
+    document.querySelector('.gameover-modal').style.display = 'none';
 
     startGame();
 }
